@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Project Name
-PawsforLife
+pawsForLife
 
 ## Project Description
 
@@ -10,14 +10,14 @@ This project will allow people to search for pets that need rescuing by specific
 
 [https://www.petfinder.com/developers/]
 ## Wireframes
-[https://wireframe.cc/pro/edit/404028]
+
+![Wireframes](PawsforLifeWireframe.png)
 
 #### MVP 
-Use HTML, JAVASCRIPT, and CSS
-Style using flexobx
-Utilize Axios
-Make daily commits to Github
-Make use of a media query/ breakpoint
+- Allows user to search for animals that need rehoming
+- User can search by their needs (i.e. coat length, breed, location)
+- Help foster and adoptive parents have access to see by specific organizations
+
 
 
 ## Project Schedule
@@ -25,38 +25,47 @@ Make use of a media query/ breakpoint
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Dec 18| Prompt / Wireframes / Priority Matrix / Timeframes 
-|Dec 21| Project Approval 
-|Dec 22| Core Application Structure (HTML, CSS, etc.)
-|Dec 23| Pseudocode / actual code 
-|Jan 4| MVP 
-|Jan 5| Presentations 
+|Dec 18| Prompt / Wireframes / Priority Matrix / Timeframes | Complete 
+|Dec 21| Project Approval | Complete
+|Dec 22| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|Dec 23| Pseudocode / actual code | Incomplete
+|Jan 4| MVP | Incomplete
+|Jan 5| Presentations | Incomplete
 
 ## Priority Matrix
+![Wireframes](priorityMatrix.png)
 
-[https://docs.google.com/presentation/d/1L-LXdjMiD6LWamP4q-kLp5MlvFN0LR2wekDiiizWWY8/edit?usp=sharing]
 ## Timeframes
 
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| CSS |H |  3| :---: | :---: |
-| Working with API | H | 3hrs|  |  |
-| JAVASACRIPT with API| H| 3| |  |
-| JAVASACRIPT with form| H| 3 | |  |
-| JAVASACRIPT clear the form| H| 3 | |  |
-| JAVASACRIPT| H| 3 | |  |
-| HTML| H| 3 | |  |
-| Media query| H| 3 | |  |
-| total| H| 24 | |  |
+| --- | :---: |  :---: | :---: | :---: |
+| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
+| Pseudocoding | H | 3hrs| 2.5hrs | 2.5hrs |
+| CSS | H | 3hrs| 2.5hrs | 2.5hrs |
+| HTML | H | 3hrs| 2.5hrs | 2.5hrs |
+| JAVASCRIPT| H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Total | H | 6hrs|  |  |
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+  {
+    "id": 50103772,
+    "organization_id": "IL542",
+    "url": "https://www.petfinder.com/dog/collins-50103772/il/bloomington/wish-bone-canine-rescue-il542/?referrer_id=2bfae57e-89c9-45d2-b451-e8913c868a77",
+    "type": "Dog",
+    "species": "Dog",
+    "breeds": {
+        "primary": "Cockapoo",
+        "secondary": null,
+        "mixed": true,
+        "unknown": false
+    },
 ```
 
 ## Change Log
