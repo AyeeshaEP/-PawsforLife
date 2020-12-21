@@ -1,5 +1,4 @@
 # Project Overview
-
 ## Project Name
 pawsForLife
 

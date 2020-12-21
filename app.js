@@ -27,3 +27,4 @@ getAnimals();
 // function renderList(animals) {
 //   animals.forEach
 // }
+//Complete
