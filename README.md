@@ -43,11 +43,15 @@ Make use of a media query/ breakpoint
 
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| CSS |H |  9 | :---: | :---: |
-| Adding Form | H | 6hrs|  | |
-| Working with API | H | 4hrs|  |  |
-| JAVASACRIPT| H| 20 | |  |
-| total| H| 40 | |  |
+| CSS |H |  3| :---: | :---: |
+| Working with API | H | 3hrs|  |  |
+| JAVASACRIPT with API| H| 3| |  |
+| JAVASACRIPT with form| H| 3 | |  |
+| JAVASACRIPT clear the form| H| 3 | |  |
+| JAVASACRIPT| H| 3 | |  |
+| HTML| H| 3 | |  |
+| Media query| H| 3 | |  |
+| total| H|  | |  |
 
 ## Code Snippet
 
