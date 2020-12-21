@@ -12,10 +12,6 @@ This project will allow people to search for pets that need rescuing by specific
 ## Wireframes
 [https://wireframe.cc/pro/edit/404028]
 
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
 Use HTML, JAVASCRIPT, and CSS
 Style using flexobx
@@ -51,7 +47,7 @@ Make use of a media query/ breakpoint
 | JAVASACRIPT| H| 3 | |  |
 | HTML| H| 3 | |  |
 | Media query| H| 3 | |  |
-| total| H|  | |  |
+| total| H| 24 | |  |
 
 ## Code Snippet
 
