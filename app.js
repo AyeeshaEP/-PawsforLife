@@ -26,5 +26,3 @@ const getAnimals = async () => {
 getAnimals();
 // function renderList(animals) {
 //   animals.forEach
-// }
-//Complete
