@@ -17,21 +17,35 @@ const acquireToken = async () => {
   return response.data.access_token;
 };
 
-const getAnimals = async () => {
-  const token = await acquireToken();
-  // console.log(token)
-  const animals = await axios.get(
-    "https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-  console.log(animals.data.animals);
+// const getAnimals = async () => {
+//   const token = await acquireToken();
+//   // console.log(token)
+//   const animals = await axios.get(
+//     "https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals",
+//     {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     }
+//   );
+//   console.log(animals.data.animals);
+const getAnimalsbyType = async () => {
+    const token = await acquireToken();
+    // console.log(token)
+    const animals = await axios.get(
+      `https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals?type=${selectOption.value}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    // console.log(animals.data.animals);
+  console.log(animals.data)
 
-  renderPets(animals.data.animals)
+  // renderPets(animals.data.animals)
 };
+
 
 const renderPets = (pets) => {
 
@@ -84,7 +98,7 @@ const renderOptions = (types) => {
   });
 }
 
-button.addEventListener("click", getAnimals)
+button.addEventListener("click", getAnimalsbyType)
 
 
 
@@ -95,9 +109,9 @@ let i = 0;
 function move() {
   if (i == 0) {
     i = 1;
-    var elem = document.getElementById("myBar");
-    var width = 10;
-    var id = setInterval(frame, 10);
+    let elem = document.getElementById("myBar");
+    let width = 10;
+    let id = setInterval(frame, 10);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
