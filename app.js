@@ -41,34 +41,34 @@ const getAnimalsbyType = async () => {
       }
     );
     // console.log(animals.data.animals);
-  console.log(animals.data)
-
-  // renderPets(animals.data.animals)
+  console.log(animals.data.animals)
+//  renderPets(animals.data.animals)
 };
 
 
 const renderPets = (pets) => {
 
-  let filteredPets = pets.filter((pet) => {
-  return selectOption.value === pet.type
-  })
+  // let filteredPets = pets.filter((pet) => {
+  // return selectOption.value === pet.type
+  // })
 
   const petSection = document.querySelector(".pet-section")
   petSection.innerHTML = ""
 
-  console.log(filteredPets)
+  // console.log(filteredPets)
 
-  filteredPets.forEach((pet) => {
+  pets.forEach((pet) => {
     const petDiv = document.createElement("div")
     petDiv.innerHTML = `
     <h2> ${pet.name} </h2>
     <p> ${pet.age} </p>
-    <img src=${pet.photos[0].full === undefined ? pet.photos[0].full : "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/06/02/Photos/Processed/pets1-kYdB--621x414@LiveMint.jpg"} alt=${pet.name}/>
+    // <img src=${pet.photos[0].full === undefined ? pet.photos[0].full : "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/06/02/Photos/Processed/pets1-kYdB--621x414@LiveMint.jpg"} alt=${pet.name}/>
     ` 
     petSection.append(petDiv)
   })
 
   console.log(selectOption.value)
+  renderPets(animals.data.animals)
   
 }
 
