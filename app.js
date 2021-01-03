@@ -57,10 +57,7 @@ const renderPets = (pets) => {
   console.log(selectOption.value)
   
 }
-// If loading on page open, then this is fine. If you want to call API after a click event, then add event listener
-// getAnimals();
-// function renderList(animals) {
-//   animals.forEach
+
 
 
 
