@@ -29,7 +29,7 @@ const acquireToken = async () => {
 //     }
 //   );
 //   console.log(animals.data.animals);
-const getAnimalsbyType = async () => {
+const getAnimalsByType = async () => {
     const token = await acquireToken();
     // console.log(token)
     const animals = await axios.get(
@@ -42,7 +42,7 @@ const getAnimalsbyType = async () => {
     );
     // console.log(animals.data.animals);
   console.log(animals.data.animals)
-//  renderPets(animals.data.animals)
+ renderPets(animals.data.animals)
 };
 
 
@@ -59,17 +59,16 @@ const renderPets = (pets) => {
 
   pets.forEach((pet) => {
     const petDiv = document.createElement("div")
-    petDiv.innerHTML = `
-    <h2> ${pet.name} </h2>
-    <p> ${pet.age} </p>
+    // petDiv.innerHTML = `
+    // <h2> ${pet.name} </h2>
+    // <p> ${pet.age} </p>
     // <img src=${pet.photos[0].full === undefined ? pet.photos[0].full : "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/06/02/Photos/Processed/pets1-kYdB--621x414@LiveMint.jpg"} alt=${pet.name}/>
-    ` 
+    // ` 
     petSection.append(petDiv)
   })
 
   console.log(selectOption.value)
-  renderPets(animals.data.animals)
-  
+ 
 }
 
 
@@ -98,7 +97,7 @@ const renderOptions = (types) => {
   });
 }
 
-button.addEventListener("click", getAnimalsbyType)
+button.addEventListener("click", getAnimalsByType)
 
 
 
