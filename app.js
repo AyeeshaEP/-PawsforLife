@@ -29,10 +29,10 @@ const acquireToken = async () => {
 //     }
 //   );
 //   console.log(animals.data.animals);
-const getAnimalsByType = async () => {
+const getAnimalsByType = async () => { 
     const token = await acquireToken();
-    // console.log(token)
-    const animals = await axios.get(
+    console.log(token)
+    const animals = await axios.get( 
       `https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals?type=${selectOption.value}`,
       {
         headers: {
@@ -64,7 +64,10 @@ const renderPets = (pets) => {
     // <p> ${pet.age} </p>
     // <img src=${pet.photos[0].full === undefined ? pet.photos[0].full : "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/06/02/Photos/Processed/pets1-kYdB--621x414@LiveMint.jpg"} alt=${pet.name}/>
     // ` 
+    petDiv.innerHTML = `<div>${pet.name}</div>`
+    // petDiv.innerHTML = `<div>${primary_photo_cropped}</div`
     petSection.append(petDiv)
+    console.log(pet.name)
   })
 
   console.log(selectOption.value)
@@ -104,25 +107,25 @@ button.addEventListener("click", getAnimalsByType)
 
 
 
-let i = 0;
-function move() {
-  if (i == 0) {
-    i = 1;
-    let elem = document.getElementById("myBar");
-    let width = 10;
-    let id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-        elem.innerHTML = width + "%";
-      }
-    }
-  }
-}
+// let i = 0;
+// function move() {
+//   if (i == 0) {
+//     i = 1;
+//     let elem = document.getElementById("myBar");
+//     let width = 10;
+//     let id = setInterval(frame, 10);
+//     function frame() {
+//       if (width >= 100) {
+//         clearInterval(id);
+//         i = 0;
+//       } else {
+//         width++;
+//         elem.style.width = width + "%";
+//         elem.innerHTML = width + "%";
+//       }
+//     }
+//   }
+// }
 
 // const getOptions = async () => {
 //   const url = `https://api.petfinder.com/v2/types`;
