@@ -10,7 +10,7 @@ This project will allow people to search for pets that need rescuing by specific
 [https://www.petfinder.com/developers/]
 ## Wireframes
 
-![Wireframes](PawsforLifeWireframe.png)
+![Wireframes]()
 
 #### MVP 
 - Allows user to search for animals that need rehoming

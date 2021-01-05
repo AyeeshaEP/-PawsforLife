@@ -130,3 +130,14 @@ img {
   overflow-y: scroll;
   width: 50%;
 }
+
+.animal-age, .animal-gender, .animal-id, .animal-breeds, .animal-description, .animal-phone, .animal-size, .animal-status {
+   padding: 30%;
+   text-align: center;
+   justify-content: space-between;
+   width: 50%
+}
+
+@media (max-width:1100px ) {
+  #blank
+}

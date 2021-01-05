@@ -13,18 +13,7 @@ const acquireToken = async () => {
   return response.data.access_token;
 };
 
-// const getAnimals = async () => {
-//   const token = await acquireToken();
-//   // console.log(token)
-//   const animals = await axios.get(
-//     "https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals",
-//     {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     }
-//   );
-//   console.log(animals.data.animals);
+
 const getAnimalsByType = async () => {
   const token = await acquireToken();
   console.log(token);
@@ -36,22 +25,18 @@ const getAnimalsByType = async () => {
       },
     }
   );
-  // console.log(animals.data.animals);
+  
   console.log(animals.data.animals);
   renderPets(animals.data.animals);
 };
 
 const renderPets = (pets) => {
-  // let filteredPets = pets.filter((pet) => {
-  // return selectOption.value === pet.type
-  // })
+  
 
   const petSection = document.querySelector(".pet-section");
   petSection.innerHTML = "";
 
-  // console.log(filteredPets)
-
-  pets.forEach((pet) => {
+   pets.forEach((pet) => {
     let petInfo = document.createElement("div");
     petInfo.className = "pet-info";
 
@@ -116,26 +101,25 @@ const getChosenAnimal = async (id) => {
 const renderAnimal = (animalData) => {
   const petSection = document.querySelector(".pet-section");
   petSection.innerHTML = "";
-  petSection.append(animalData.name)
-  if (animalData.photos.length > 0) {
-    const img = document.createElement("img");
-    img.src = animalData.photos[0].small;
-    img.className = "pet-pic";
-    petSection.append(img);
-  } else {
-    const img = document.createElement("img");
-    img.src = "./photo-unavailable.png";
-    img.className = "pet-pic";
-    petSection.append(img);
-  }
-  petSection.append(animalData.age)
-  petSection.append(animalData.gender)
-  petSection.append(animalData.id)
-  petSection.append(animalData.breeds)
-  petSection.append(animalData.description)
-  petSection.append(animalData.contact.phone)
-  petSection.append(animalData.size)
-  petSection.append(animalData.status)
+
+  let petSrc = animalData.photos.length > 0 ? animalData.photos[0].small : "./photo-unavailable.png"
+
+  petSection.innerHTML = `
+  <div>
+    <h2>${animalData.name}</h2>
+    <img src=${petSrc} class="pet-pic" alt=${animalData.name}/>
+    <p>Age: ${animalData.age}</p>
+    <p>Gender: ${animalData.gender}</p>
+    <p>Id: ${animalData.id}</p>
+    <p>Breed: ${animalData.breeds.primary}</p>
+    <p>Description: ${animalData.description}</p>
+    <p>Phone: ${animalData.contact.phone}</p>
+    <p>Size: ${animalData.size}</p>
+    <p>Coat: ${animalData.coat}</p>
+    <p>Status: ${animalData.status}</p>
+  </div>
+  `
+
   console.log(animalData)
   
 
@@ -166,93 +150,3 @@ const renderOptions = (types) => {
 
 button.addEventListener("click", getAnimalsByType);
 
-// let i = 0;
-// function move() {
-//   if (i == 0) {
-//     i = 1;
-//     let elem = document.getElementById("myBar");
-//     let width = 10;
-//     let id = setInterval(frame, 10);
-//     function frame() {
-//       if (width >= 100) {
-//         clearInterval(id);
-//         i = 0;
-//       } else {
-//         width++;
-//         elem.style.width = width + "%";
-//         elem.innerHTML = width + "%";
-//       }
-//     }
-//   }
-// }
-
-// const getOptions = async () => {
-//   const url = `https://api.petfinder.com/v2/types`;
-//   try {
-//     const response = await axios.get(url);
-//     // console.log(response.data.message)
-//     const list = Object.keys(response.data.message);
-//     // console.log(list)
-//     optionValue(list);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// getOptions();
-
-// function optionValue(list) {
-//   // console.log("Dog List", list)
-//   const select = document.querySelector("#select-breed");
-//   // console.log(select)
-//   return list.forEach((dog) => {
-//     const option = document.createElement("option");
-//     option.value = `${dog}`;
-//     option.textContent = `${dog}`;
-//     select.append(option);
-//   });
-// }
-// function getValue(e) {
-//   e.preventDefault();
-//   const optionValue = document.querySelector("#select-breed").value;
-//   // console.log(optionValue)
-//   removePic();
-//   getBreed(optionValue);
-// }
-
-// const form = document.querySelector("form");
-// form.addEventListener("submit", getValue);
-
-// async function getBreed(breed) {
-//   const breedUrl = `https://api.petfinder/api/breed/${breed}/images/random`;
-//   try {
-//     const response = await axios.get(breedUrl);
-//     console.log(response.data.message);
-//     dogPic(response.data.message);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// // Create img element, set src, and append to DOM
-
-// function dogPic(breed) {
-//   let img = document.createElement("img");
-//   img.src = breed;
-//   document.querySelector("#append-dog").append(img);
-//   // let dogImage = `
-//   //   <img src="${breed}"/>
-//   // `
-//   // const imgContainer = document.querySelector('#append-dog')
-//   // imgContainer.insertAdjacentHTML("beforeend", dogImage)
-// }
-
-// // Remove previous image
-
-// function removePic() {
-//   const removeImg = document.querySelector("#append-dog");
-//   // console.log(removeImg)
-//   while (removeImg.lastChild) {
-//     removeImg.removeChild(removeImg.lastChild);
-//   }
-// }
