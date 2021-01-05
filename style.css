@@ -47,12 +47,12 @@ img {
 
 body {
   font-family: 'Playfair Display', serif;
-  background-color: #E0DDCF;
 }
 h1 {
   text-align: center;
 }
 .search-section {
+  display: flex;
   justify-content: center;
   padding: 10px;
   margin: 10px;
@@ -61,37 +61,72 @@ h1 {
   
 .content {
   display: flex;
-  justify-content: space-between; /* Gap between pups and cats */
+  justify-content: center; 
+  background-image: url(https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
 }
  
-.pup-pics {
+/* .pup-pics {
   display: flex;
   flex-flow: column; 
   
-}
-.cat-pics {
+   */
+
+/* .cat-pics {
  
   display: flex;
   flex-flow: column;
   
-}
+  
+} */
 img {
   
-  max-width: 100px;
-  max-height: 100px;
-  margin: 0px 0 50px 0;
+  max-width: 500px; /* origionally 100 */
+  max-height: 500px;
+  margin: 0px 0 0px 0;
   
 }
+
 #myProgress {
   width: 100%;
   background-color: grey;
 }
 
-#myBar {
+/* #myBar {
   width: 10%;
   height: 30px;
   background-color: #4CAF50;
   text-align: center;
   line-height: 30px; /* To center it vertically */
+ 
+
+.pet-pic, .contact, .contactLink, .petBreeds {
+  /* padding: 10%; */
+  text-align: center;
+  width: 50%
+}
+
+.pet-name {
+  padding-top: 20%;
+  padding-bottom: 0%;
   color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  font-weight: bold;
+}
+
+.pet-section {
+  background: rgba(120, 120, 120, 0.5);
+  /* border: 1px solid grey; */
+  border-radius: 15px;
+  text-align: center;
+
+}
+
+.pet-section-parent {
+  overflow-y: scroll;
+  width: 50%;
 }

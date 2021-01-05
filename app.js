@@ -1,9 +1,5 @@
-const button = document.querySelector("button")
-const selectOption = document.querySelector("select")
-
-
-
-
+const button = document.querySelector("button");
+const selectOption = document.querySelector("select");
 
 const acquireToken = async () => {
   const response = await axios.post(
@@ -29,53 +25,121 @@ const acquireToken = async () => {
 //     }
 //   );
 //   console.log(animals.data.animals);
-const getAnimalsByType = async () => { 
-    const token = await acquireToken();
-    console.log(token)
-    const animals = await axios.get( 
-      `https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals?type=${selectOption.value}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    // console.log(animals.data.animals);
-  console.log(animals.data.animals)
- renderPets(animals.data.animals)
+const getAnimalsByType = async () => {
+  const token = await acquireToken();
+  console.log(token);
+  const animals = await axios.get(
+    `https://api.petfinder.com/v2/animals?type=${selectOption.value}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  // console.log(animals.data.animals);
+  console.log(animals.data.animals);
+  renderPets(animals.data.animals);
 };
 
-
 const renderPets = (pets) => {
-
   // let filteredPets = pets.filter((pet) => {
   // return selectOption.value === pet.type
   // })
 
-  const petSection = document.querySelector(".pet-section")
-  petSection.innerHTML = ""
+  const petSection = document.querySelector(".pet-section");
+  petSection.innerHTML = "";
 
   // console.log(filteredPets)
 
   pets.forEach((pet) => {
-    const petDiv = document.createElement("div")
-    // petDiv.innerHTML = `
-    // <h2> ${pet.name} </h2>
-    // <p> ${pet.age} </p>
-    // <img src=${pet.photos[0].full === undefined ? pet.photos[0].full : "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/06/02/Photos/Processed/pets1-kYdB--621x414@LiveMint.jpg"} alt=${pet.name}/>
-    // ` 
-    petDiv.innerHTML = `<div>${pet.name}</div>`
-    // petDiv.innerHTML = `<div>${primary_photo_cropped}</div`
-    petSection.append(petDiv)
-    console.log(pet.name)
-  })
+    let petInfo = document.createElement("div");
+    petInfo.className = "pet-info";
 
-  console.log(selectOption.value)
+    const petName = document.createElement("div");
+    petName.innerHTML = `<div>${pet.name}</div>`;
+    petName.className = "pet-name";
+    petInfo.append(petName);
+
+    if (pet.photos.length > 0) {
+      const img = document.createElement("img");
+      img.src = pet.photos[0].small;
+      img.className = "pet-pic";
+      petInfo.append(img);
+    } else {
+      const img = document.createElement("img");
+      img.src = "./photo-unavailable.png";
+      img.className = "pet-pic";
+      petInfo.append(img);
+    }
+
+    const age = document.createElement("div");
+    age.innerHTML = `${pet.age}`;
+    age.className = "age";
+    petInfo.append(age);
+
+    const contactLink = document.createElement("a");
+    contactLink.innerHTML = `${pet.contact.email}`;
+    contactLink.target = "_blank";
+    contactLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${pet.contact.email}`;
+    contactLink.className = "contact";
+    petInfo.append(contactLink);
+
+    const contact = document.createElement("div");
+    contact.innerHTML = `${pet.contact.phone}`;
+    contact.className = "phone";
+    petInfo.append(contact);
+
+    const petBreeds = document.createElement("div");
+    petBreeds.innerHTML = `${pet.breeds.primary}`;
+    petBreeds.className = "pet-breeds";
+    petInfo.append(petBreeds);
+
+    petSection.append(petInfo);
+
+    petInfo.addEventListener("click", () => {
+      getChosenAnimal(pet.id)
+      
+    });
+  });
+};
+    
+const getChosenAnimal = async (id) => { 
+  const token = await acquireToken();
+  const response = await axios.get(`https://api.petfinder.com/v2/animals/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+    renderAnimal(response.data.animal)
+};
  
+const renderAnimal = (animalData) => {
+  const petSection = document.querySelector(".pet-section");
+  petSection.innerHTML = "";
+  petSection.append(animalData.name)
+  if (animalData.photos.length > 0) {
+    const img = document.createElement("img");
+    img.src = animalData.photos[0].small;
+    img.className = "pet-pic";
+    petSection.append(img);
+  } else {
+    const img = document.createElement("img");
+    img.src = "./photo-unavailable.png";
+    img.className = "pet-pic";
+    petSection.append(img);
+  }
+  petSection.append(animalData.age)
+  petSection.append(animalData.gender)
+  petSection.append(animalData.id)
+  petSection.append(animalData.breeds)
+  petSection.append(animalData.description)
+  petSection.append(animalData.contact.phone)
+  petSection.append(animalData.size)
+  petSection.append(animalData.status)
+  console.log(animalData)
+  
+
 }
-
-
-
 
 
 const getTypes = async () => {
@@ -91,21 +155,16 @@ const getTypes = async () => {
 getTypes();
 
 const renderOptions = (types) => {
-  const select = document.querySelector("select")
-  types.forEach(type => {
-    let option = document.createElement("option") 
-    option.innerHTML = `<p>${type.name}</p>`
-    option.value = type.name
-    select.append(option)
+  const select = document.querySelector("select");
+  types.forEach((type) => {
+    let option = document.createElement("option");
+    option.innerHTML = `<p>${type.name}</p>`;
+    option.value = type.name;
+    select.append(option);
   });
-}
+};
 
-button.addEventListener("click", getAnimalsByType)
-
-
-
-
-
+button.addEventListener("click", getAnimalsByType);
 
 // let i = 0;
 // function move() {
