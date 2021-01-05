@@ -142,11 +142,24 @@ const renderOptions = (types) => {
   const select = document.querySelector("select");
   types.forEach((type) => {
     let option = document.createElement("option");
-    option.innerHTML = `<p>${type.name}</p>`;
-    option.value = type.name;
-    select.append(option);
+    if (
+      type.name !== "Scales, Fins & Other" &&
+      type.name !== "Small & Furry"
+    ) {
+      // option.value = data[i].name;
+      // option.innerText = data[i].name;
+      // selectMenu.appendChild(option);
+      option.innerHTML = `<p>${type.name}</p>`;
+      option.value = type.name;
+      select.append(option);
+    }
+  
+    // option.innerHTML = `<p>${type.name}</p>`;
+    // option.value = type.name;
+    // select.append(option);
   });
-};
 
-button.addEventListener("click", getAnimalsByType);
 
+  button.addEventListener("click", getAnimalsByType);
+
+}

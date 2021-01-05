@@ -10,7 +10,7 @@ This project will allow people to search for pets that need rescuing by specific
 [https://www.petfinder.com/developers/]
 ## Wireframes
 
-![Wireframes]()
+![Wireframes](home.png)
 
 #### MVP 
 - Allows user to search for animals that need rehoming
@@ -68,4 +68,4 @@ Use this section to include a brief code snippet of functionality that you are p
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Use this section to document what changes were made and the reasoning behind those changes.
